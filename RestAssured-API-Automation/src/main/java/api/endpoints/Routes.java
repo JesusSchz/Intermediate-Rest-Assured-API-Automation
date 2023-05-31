@@ -15,7 +15,7 @@ public class Routes {
     public static String getAllTools = baseUrl + "/tools";
 
     //Get a single tool
-    public static String getSingleTool = baseUrl + "/tools/:toolId";
+    public static String getSingleTool = baseUrl + "/tools/{:toolId}";
 
     //Get orders
     public static String getOrders = baseUrl + "/orders";
