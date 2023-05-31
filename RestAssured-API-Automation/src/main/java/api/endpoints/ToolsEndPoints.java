@@ -12,9 +12,9 @@ public class ToolsEndPoints {
     //Return all tools
     public Response getAllTools() {
         Response getAllToolsResponse = RestAssured
-                .given()
+            .given()
                 .log().all()
-                .when()
+            .when()
                 .get(Routes.getAllTools);
         //.then().log().all();
         System.out.println(getAllToolsResponse.then().log().all());
