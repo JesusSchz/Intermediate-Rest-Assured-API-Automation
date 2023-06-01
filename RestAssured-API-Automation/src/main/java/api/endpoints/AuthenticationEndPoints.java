@@ -2,13 +2,11 @@ package api.endpoints;
 
 import api.pojos.ClientAuthentication;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.junit.Test;
 
 import static io.restassured.http.ContentType.JSON;
 
-public class Authentication {
+public class AuthenticationEndPoints {
     ClientAuthentication client = new ClientAuthentication();
 
     //Create client and get accessToken
