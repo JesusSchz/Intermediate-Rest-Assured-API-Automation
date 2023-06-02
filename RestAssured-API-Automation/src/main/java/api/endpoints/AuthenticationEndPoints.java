@@ -10,9 +10,9 @@ public class AuthenticationEndPoints {
     ClientAuthentication client = new ClientAuthentication();
 
     //Create client and get accessToken
-    public Response registerClient(){
-        client.setClientEmail("some@email.com");
-        client.setClientName("Some Name");
+    public Response registerClient(ClientAuthentication clienteData){
+        client.setClientEmail(clienteData.getClientEmail());
+        client.setClientName(clienteData.getClientName());
         Response tokenClient = RestAssured
             .given()
                 .contentType(JSON)
@@ -20,7 +20,7 @@ public class AuthenticationEndPoints {
             .when()
                 .post(Routes.clientRegister);
 
-        System.out.println(tokenClient.then().log().all());
+        //System.out.println(tokenClient.then().log().all());
         return tokenClient;
 
     }

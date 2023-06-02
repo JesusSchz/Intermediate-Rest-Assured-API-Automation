@@ -3,9 +3,6 @@ package api.endpoints;
 import api.pojos.Tool;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.junit.Test;
-
-import static io.restassured.http.ContentType.JSON;
 
 public class ToolsEndPoints {
 
