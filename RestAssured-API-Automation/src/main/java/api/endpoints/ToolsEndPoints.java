@@ -20,24 +20,18 @@ public class ToolsEndPoints {
     }
 
     //get single tool
-    public Response getSingleTool() {
-        Tool setToolValues = new Tool();
-        setToolValues.setToolId(0);
-        setToolValues.setUserManual(true);
-
+    public Response getSingleTool(Tool tool) {
         Response getSingleToolResponse = null;
-        if (setToolValues.getToolId() != 0) {
+        if (tool.getToolId() != 0) {
             getSingleToolResponse = RestAssured
                 .given()
-                    .pathParam(":toolId",1709)
+                    .pathParam(":toolId",tool.getToolId())
                     .log().all()
                 .when()
                     .get(Routes.getSingleTool);
 
             System.out.println(getSingleToolResponse.then().log().all());
         }
-
-
         return getSingleToolResponse;
     }
 }
