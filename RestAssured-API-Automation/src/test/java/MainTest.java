@@ -4,9 +4,6 @@ import api.pojos.ClientAuthentication;
 import api.pojos.Tool;
 import com.github.javafaker.Faker;
 import io.restassured.response.Response;
-import jdk.jfr.Category;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.TestInfo;
 import org.testng.*;
 import org.testng.annotations.*;
 
@@ -72,6 +69,8 @@ public class MainTest {
     public void getToolById(){
         tool.setToolId(4643);
         Response getToolById=toolsEndPoints.getSingleTool(tool);
-        System.out.println(getToolById.then().log().all());
+        int toolId=getToolById.then().log().all().extract().path("id");
+        Assert.assertEquals(getToolById.getStatusCode(),200);
+        Assert.assertEquals(toolId,4643);
     }
 }
