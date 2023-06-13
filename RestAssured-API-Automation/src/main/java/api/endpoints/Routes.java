@@ -14,14 +14,17 @@ public class Routes {
     //Get all tools
     public static String getAllTools = baseUrl + "/tools";
 
-    //Get a single tool
-    public static String getSingleTool = baseUrl + "/tools/{:toolId}";
+    //Get a single tool by Id
+    public static String getSingleToolById = baseUrl + "/tools/{:toolId}";
+
+    //Get a single tool by Category
+    public static String getSingleToolByCategory = baseUrl + "/tools/";
 
     //Get orders
     public static String getOrders = baseUrl + "/orders";
 
     //Get single order
-    public static String getSingleOrder = baseUrl + "/orders/:orderId";
+    public static String getSingleOrder = baseUrl + "/orders/{:orderId}";
 
     //Create a new order
     public static String createNewOrder = baseUrl + "/orders";
