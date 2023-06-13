@@ -3,7 +3,7 @@ package api.pojos;
 public class Tool {
     String category;
     int results;
-    boolean available;
+    boolean isInStock;
     int toolId;
     boolean userManual;
 
@@ -23,12 +23,12 @@ public class Tool {
         this.results = results;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public boolean isInStock() {
+        return isInStock;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
+    public void setInStock(boolean inStock) {
+        isInStock = inStock;
     }
 
     public int getToolId() {
