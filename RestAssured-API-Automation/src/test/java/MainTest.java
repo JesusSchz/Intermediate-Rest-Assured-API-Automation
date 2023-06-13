@@ -8,6 +8,7 @@ import org.testng.*;
 import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 import static org.testng.Reporter.log;
 
@@ -68,9 +69,20 @@ public class MainTest {
     @Test
     public void getToolById(){
         tool.setToolId(4643);
-        Response getToolById=toolsEndPoints.getSingleTool(tool);
+        Response getToolById=toolsEndPoints.getSingleToolById(tool);
         int toolId=getToolById.then().log().all().extract().path("id");
         Assert.assertEquals(getToolById.getStatusCode(),200);
         Assert.assertEquals(toolId,4643);
+    }
+
+    @Test
+    public void getToolBycategory(){
+        tool.setCategory("plumbing");
+        Response getToolsByCategory=toolsEndPoints.getSingleToolByCateogry(tool);
+        ArrayList<String> toolCategory=getToolsByCategory.then().extract().path("category");
+        Assert.assertEquals(getToolsByCategory.getStatusCode(),200);
+        for (String s : toolCategory) {
+            Assert.assertEquals(s, "plumbing");
+        }
     }
 }
